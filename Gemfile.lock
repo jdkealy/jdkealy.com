@@ -96,6 +96,7 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    recaptcha (0.3.4)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -126,5 +127,6 @@ DEPENDENCIES
   pg
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
+  recaptcha
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)

@@ -11,6 +11,11 @@
       inquiry
     .controls
       %textarea.span6{:name=>"inquiry",:rows=>20, :cols=>50}
+  .control-group
+    %label.control-label
+      CAPTCHA
+    .controls
+      = recaptcha_tags :public_key => '6Le6Kd8SAAAAAA9oM9vHHRfbigpYThfvbGkMAFYL'
   .form-actions
     %button.btn.btn-success
       SUBMIT

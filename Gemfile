@@ -39,3 +39,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "recaptcha", :require => "recaptcha/rails"
