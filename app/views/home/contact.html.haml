@@ -1,0 +1,18 @@
+%form.form{:action=>'/submit-inquiry', :method=>"POST"}
+  %legend
+    Contact me to talk about your software needs!
+  .control-group
+    %label.control-label
+      email
+    .controls
+      %input{:name=>"email",:type=>"text", :placeholder=>"email@domain.com"}
+  .control-group
+    %label.control-label
+      inquiry
+    .controls
+      %textarea.span6{:name=>"inquiry",:rows=>20, :cols=>50}
+  .form-actions
+    %button.btn.btn-success
+      SUBMIT
+:javascript
+  $(".nav .contact").addClass("active");

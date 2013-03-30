@@ -1,0 +1,43 @@
+.row-fluid
+  .span12.well
+    .row-fluid
+      .span3
+        %h4
+          Custom Software Development: web applications and mobile
+        I am a freelance software developer. I build custom software solutions for your business. I specialize in e-commerce and mobile app development. I do most work myself and have a network of highly-motivated professionals that will leave you smiling.
+        %br
+        %br
+        %br
+          %a.btn.btn-success{:href=>"/contact"}
+            Contact
+      .span9.hidden-phone
+        .techstack
+          = image_tag 'rails.png'
+          = image_tag 'logo-mongodb.png'
+          = image_tag 'PostgreSQL_elephant.png'
+          = image_tag 'redis.png'
+          =# image_tag 'mysql.png'
+          =# image_tag 'sinatra.png'
+          = image_tag 'bootstrap.png'
+          = image_tag 'node.png'
+          =# image_tag 'drupal.png'
+          = image_tag 'backbone.png'
+          .clearfix
+.row-fluid
+  .span12
+    %ul.nav.nav-pills.main-tabs
+      %li.active
+        %a{:href=>"#solutions"}
+          Solutions
+      %li
+        %a{:href=>"#practices"}
+          Practices
+      =#%li
+      =#  %a{:href=>"#technologies"}
+      =#    Technologies
+.tab-content
+  = render '/tabs/solutions'
+  = render '/tabs/processes'
+  = render '/tabs/technologies'
+:javascript
+  $(".nav .home").addClass("active");
