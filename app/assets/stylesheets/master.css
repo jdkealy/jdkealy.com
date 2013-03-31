@@ -37,3 +37,9 @@ p{
   float:left;
   margin:10px;
 }
+.centered{
+  text-align:center;
+}
+.padded{
+  padding:10px;
+}
