@@ -9,6 +9,10 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 
+group :development do
+  gem 'sqlite3'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -40,3 +44,5 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "recaptcha", :require => "recaptcha/rails"
+gem "friendly_id"
+gem 'ckeditor_rails'
