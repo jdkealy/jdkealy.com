@@ -45,5 +45,3 @@ gem 'haml-rails'
 gem "recaptcha", :require => "recaptcha/rails"
 gem "friendly_id"
 gem 'ckeditor_rails'
-#gem 'bootstrap3_rails', :path =>'~/srv/gems/bootstrap3_rails'
-gem 'bootstrap3_rails'
