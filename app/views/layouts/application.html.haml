@@ -22,15 +22,8 @@
     = render '/layouts/header'
     .container-fluid
       .row-fluid
-        .span12
-          = bootstrap_flash
+        .col-md-12
           = yield
-      .row-fluid
-        .span12
-          %footer
-            %p
-              &copy;
-              = "John Kealy #{Time.now.year}"
 :javascript
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

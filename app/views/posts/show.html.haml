@@ -1,0 +1,10 @@
+%h2.main_title
+  = @post.title
+= @post.body.html_safe
+%br
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path
+:javascript
+  $(".nav .blog").addClass("active");

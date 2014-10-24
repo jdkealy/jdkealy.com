@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require ckeditor-jquery
+//= require bootstrap.min
 //= require_tree .
+//
 //
 $("document").ready(function(){
   $('.main-tabs a').click(function (e) {
