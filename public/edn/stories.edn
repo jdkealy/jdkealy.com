@@ -1,4 +1,78 @@
 [
+ {:title "following along..."
+  :body ["As far as I can tell, there are a few things making this how-to blog kind of suck... They are:  "
+         "1: not much of an explanation on getting set up... "
+         "2: my github history is not that clean because I am including the compiled javascript and not just cljs source files in the repo. A little back-story is in order. Clojurescript works by compiling clojure to javascript. So in my application there's really only 1 file which matters, it's app.cljs"
+         {:type :link
+          :href "https://github.com/jdkealy/jdkealy.com/blob/fc46e2b5241a2f1867e52d40d951e1341c21db3f/jdkealy/src/cljs/jdkealy/app.cljs"
+          :body "My main cljs file at the time of writing this"
+          }
+         "Everything that's included in /public/js/out really should not be in the repository! So why is it in mine? Because I am LAZY and wanted to just push heroku's server the compiled javascript instead of figuring out how to get heroku to compile the javascript itself... Not sure if that's possible yet, haven't even looked it up. So, for the sake of reading along, ignore everything that's in /public/js/out"
+         "So... here's another problem, I copied that file from another project and it's filled with grabage... Let's clean it up so you only see the relevant part... Or how about we show the relevant part in the snippest we just built"
+         {:type :code
+          :brush "clojure"
+          :body
+          "
+          (defn do-get-stories [owner]
+            (go
+              (let [res (<! (http/get (str  \"/edn/stories.edn\")))]
+                (om/transact! (om/get-props owner) (fn [props]
+                                                     (assoc props :stories (cljs.reader/read-string (:body res))))))))"}
+         "The above is a function to fetch the EDN database which is just a text-file which i'm editing right now... We're not serving up content from a server, but rather editing a raw EDN file, which I'm pushing to git."
+         {:type :link
+          :href "https://github.com/jdkealy/jdkealy.com/blob/fc46e2b5241a2f1867e52d40d951e1341c21db3f/public/edn/stories.edn"
+          :body "this is that link... The content I'm writign right now will be in the next commit, which I'll add to this story."}
+         "The below is my actual view code. The following cljs code depends on the following plugins"
+         {:type :link
+          :href "https://github.com/swannodette/om"
+          :body "om (a clojurescript implementation of Facebook's React)"}
+         {:type :link
+          :href "https://github.com/r0man/sablono"
+          :body "Sablono for making writing markup a little easier"}
+         {:type :link
+          :href "https://github.com/Prismatic/om-tools"
+          :body "Om tools for making writing boiler plate components a bit easier... The defcomponentk syntax below is taking from om-tools"}
+         {:type :code
+          :brush "clojure"
+          :body
+          "
+          (defcomponentk app-view [data owner]
+            (will-mount [this]
+                         (do-get-stories owner))
+             (did-update [_ p n]
+                         (.highlight (.-SyntaxHighlighter js/window)))
+             (render-state [_ state]
+                           (html
+                            [:div
+                             [:div {:class \"nav\"}
+                              [:div {:class \"wrap\"}
+                               [:div {:class \"active header-font logo nav-element\"}
+                                [:div {:class \"head-font bold\"}
+                                 \"jOhNkEaLY.cOM\"]]]]
+                            [:div {:class \"wrap body\"}
+                             (map (fn [e]
+                                    [:div {:class \"main\"}
+                                     [:hr ]
+                                     [:h2 (:title e)]
+                                     [:div {:class \"content\"}
+                                      (map (fn [p]
+                                             (if (string? p)
+                                               [:p p]
+                                               (case (:type p)
+                                                 :code [:p
+                                                        [:pre {:class (str \"brush: \" (:brush p))}
+                                                         (str (:body p))]]
+                                                 :link [:p
+                                                        [:a {:href (:href p)}
+                                                         (:body p)]]))
+                                             ) (:body e))]
+                                     [:div {:class \"commit\"}
+                                      (:commit e)]]
+                                    ) (:stories (om/get-props owner)))]])))"}
+         "So the above code implements the React lifecycle. Every om/react view will call render-state on the a view. render-state returns HTML. will-mount gets called before render-state and in this case, I tell the view to fetch it's data in will-mount. It fetches its data and pulls in a vector of 'stories' which it then maps over and renders for your viewing pleasure."
+         "lastly did-update is called after the view has been updated. In my case, I am updating the view after I fetch the EDN database. And render code. We call 'hightlight' after the <code></code> is rendered so you can see all that fancy syntax highlighting. "
+         ]
+  }
  {:title "Rendering clojure"
   :commit "https://github.com/jdkealy/jdkealy.com/commit/fc46e2b5241a2f1867e52d40d951e1341c21db3"
   :body ["So I don't beleive this thing ships with clojure... But lemme try it out anyways"

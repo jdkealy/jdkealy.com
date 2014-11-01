@@ -14,27 +14,6 @@
   [message]
   (.log js/console (clj->js message)))
 
-(defn tap-chan [owner key]
-  (tap (om/get-shared owner [:broadcasters key]) (chan)))
-
-(defn get-chan [owner key]
-  (om/get-shared owner [:channels key]))
-
-(def channels {:push (chan)
-               :navigation (chan)
-               :misc (chan)
-               :free (chan)
-               :forms (chan)
-               :scroll (chan)
-               :actions (chan)})
-
-(def broadcasters (reduce-kv (fn [all k c]
-                               (assoc all k (mult c)))
-                             {} channels))
-
-(defn get-stories [id]
-  )
-
 (defn do-get-stories [owner]
   (go
     (let [res (<! (http/get (str  "/edn/stories.edn")))]
