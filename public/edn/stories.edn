@@ -1,5 +1,6 @@
 [
  {:title "Rendering clojure"
+  :commit "https://github.com/jdkealy/jdkealy.com/commit/fc46e2b5241a2f1867e52d40d951e1341c21db3"
   :body ["So I don't beleive this thing ships with clojure... But lemme try it out anyways"
          "Turns out you need to add a plugin... "
          {:type :link
