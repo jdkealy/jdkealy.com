@@ -52,17 +52,21 @@
                    [:div {:class "wrap"}
                     [:div {:class "active header-font logo nav-element"}
                      [:div {:class "head-font bold"}
-                      "JOHNKEALY.cOM"]]]]
+                      "jOhNkEaLY.cOM"]]]]
                   [:div {:class "wrap body"}
-                   [:div {:class "left-bar"}
-                    "hi"]
+                   [:div {:class "left-bar"}]
                    (map (fn [e]
                           [:div {:class "main"}
+                           [:hr ]
                            [:h2 (:title e)]
                            [:div {:class "content"}
                             (map (fn [p]
                                    [:p p]
-                                   ) (:body e))]]
+                                   ) (:body e))]
+                           [:div {:class "commit"}
+                            (:commit e)
+                            ]
+                           ]
                           ) (:stories (om/get-props owner)))]])))
 
 

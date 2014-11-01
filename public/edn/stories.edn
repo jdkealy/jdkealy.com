@@ -1,9 +1,10 @@
-[{:title "USING d3"
-  :body ["USING d3 is pretty Cool!"
-         "Its hard to wrap your head around though"]}
-
+[{:title "Associating a POST with a git commit"
+  :body ["Singe I'm actually using git to stora all my data including this EDN file-based database. Why not associate each blog post with a git commit? So you could follow along or something.  "
+         "Simple enough... Add a git commit attribute to this field. And render it... Only problem is though I'll have to commit twice for each article. Once to push the article / content and get the commit ID, then another to put the git commit ID in the 'DB' here. Using a text-file database just got a little less glamorous. But ok here it goes."
+         ]
+  :commit "REPLACE-ME"}
  {:title "SETTING UP A CLJS PROJECT ON HEROKU"
-  :body ["nothing is quite as easy as setting up a sinatra project on heroku. For this blog, I'm using sinatra for the client-side app and a cljore project to generate an OM/clojurescript application. For my blog, I'm writing in EDN Files"
-
-         ]}
- ]
+  :commit "not found"
+  :body ["nothing is quite as easy as setting up a sinatra project on heroku. For this blog, I'm using sinatra for the client-side app and a cljore project to generate an OM/clojurescript application. For my blog, I'm writing in EDN Files."
+         "There's a challenge in terms of organizing content... While using paredit in emacs, using EDN is a nice way to store data... But I can't figure out how to do inline markup. <div></div> remain escaped upon render. Futhermore, inline images, etc, etc won't be possible with this method either. Going to have to come up with a better method short of a full-blown WYSIWYG."
+         "In any case. This is my blog. Not much to see here."]}]
