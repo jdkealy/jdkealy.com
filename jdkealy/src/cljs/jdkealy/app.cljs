@@ -55,7 +55,6 @@
                      [:div {:class "head-font bold"}
                       "jOhNkEaLY.cOM"]]]]
                   [:div {:class "wrap body"}
-                   [:div {:class "left-bar"}]
                    (map (fn [e]
                           [:div {:class "main"}
                            [:hr ]
@@ -66,7 +65,7 @@
                                      [:p p]
                                      (case (:type p)
                                        :code [:p
-                                              [:pre {:class "brush: js"}
+                                              [:pre {:class (str "brush: " (:brush p))}
                                                (str (:body p))]]
                                        :link [:p
                                               [:a {:href (:href p)}

@@ -1,10 +1,27 @@
-[{:title "Rendering more interesting stuff"
+[
+ {:title "Rendering clojure"
+  :body ["So I don't beleive this thing ships with clojure... But lemme try it out anyways"
+         "Turns out you need to add a plugin... "
+         {:type :link
+          :href "https://brehaut.net/blog/2011/clojure_brush"
+          :body "adding a clojure 'brush'"}
+         {:type :code
+          :brush "clojure;"
+          :body  "
+(map (fn [e]
+  (log e)
+) [1 2 3])
+"}
+         "And Viola! Clojure syntax highlighting! "
+         "One thing I need to add now is an attribute in my schema to tell clojurescript app which brush to put in the [:pre] tag... So here it goes, going to add :brush 'clojure' here and :brush 'javascript' below and both should highlight appropriately"]}
+ {:title "Rendering more interesting stuff"
   :commit "https://github.com/jdkealy/jdkealy.com/commit/4b0a0c8d2ec6f479a1003bbf96e763009b1fdd88"
   :body ["So up to this point, I've had a vector of strings, and I'm breaking the string into paragraph tags, but if i want to set up a blog where I write about writing code, it won't be very useful unless I can render some code... So what to do here?"
          "Thinking I could add to this vector some hashmaps defining their type. So something like"
          "{:type :code, :body '(map (fn[e] do-something) some-vector)}"
          "so let's try this out:"
          {:type :code
+          :brush "js"
           :body
           " function foo(){
 }
