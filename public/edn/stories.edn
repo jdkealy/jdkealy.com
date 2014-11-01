@@ -1,4 +1,5 @@
 [{:title "Rendering more interesting stuff"
+  :commit "https://github.com/jdkealy/jdkealy.com/commit/4b0a0c8d2ec6f479a1003bbf96e763009b1fdd88"
   :body ["So up to this point, I've had a vector of strings, and I'm breaking the string into paragraph tags, but if i want to set up a blog where I write about writing code, it won't be very useful unless I can render some code... So what to do here?"
          "Thinking I could add to this vector some hashmaps defining their type. So something like"
          "{:type :code, :body '(map (fn[e] do-something) some-vector)}"
