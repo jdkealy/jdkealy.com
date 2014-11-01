@@ -1,0 +1,9 @@
+[{:title "USING d3"
+  :body ["USING d3 is pretty Cool!"
+         "Its hard to wrap your head around though"]}
+
+ {:title "SETTING UP A CLJS PROJECT ON HEROKU"
+  :body ["nothing is quite as easy as setting up a sinatra project on heroku. For this blog, I'm using sinatra for the client-side app and a cljore project to generate an OM/clojurescript application. For my blog, I'm writing in EDN Files"
+
+         ]}
+ ]
