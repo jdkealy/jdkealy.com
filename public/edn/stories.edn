@@ -1,4 +1,19 @@
-[{:title "Associating a POST with a git commit"
+[{:title "Rendering more interesting stuff"
+  :body ["So up to this point, I've had a vector of strings, and I'm breaking the string into paragraph tags, but if i want to set up a blog where I write about writing code, it won't be very useful unless I can render some code... So what to do here?"
+         "Thinking I could add to this vector some hashmaps defining their type. So something like"
+         "{:type :code, :body '(map (fn[e] do-something) some-vector)}"
+         "so let's try this out:"
+         {:type :code
+          :body
+          " function foo(){
+}
+          "}
+         "Cool so that works for Javascript... Let me add another type, :link so I can give credit where it's due."
+         {:type :link
+          :href "http://alexgorbatchev.com/SyntaxHighlighter/manual/installation.html"
+          :body "SyntaxHighligher Plugin"}]
+  }
+ {:title "Associating a POST with a git commit"
   :body ["Singe I'm actually using git to stora all my data including this EDN file-based database. Why not associate each blog post with a git commit? So you could follow along or something.  "
          "Simple enough... Add a git commit attribute to this field. And render it... Only problem is though I'll have to commit twice for each article. Once to push the article / content and get the commit ID, then another to put the git commit ID in the 'DB' here. Using a text-file database just got a little less glamorous. But ok here it goes."
          ]

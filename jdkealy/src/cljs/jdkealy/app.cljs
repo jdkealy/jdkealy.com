@@ -43,8 +43,9 @@
 
 (defcomponentk app-view [data owner]
   (will-mount [this]
-              (do-get-stories owner)
-   )
+              (do-get-stories owner))
+  (did-update [_ p n]
+              (.highlight (.-SyntaxHighlighter js/window)))
   (render-state [_ state]
                 (html
                  [:div
@@ -61,12 +62,18 @@
                            [:h2 (:title e)]
                            [:div {:class "content"}
                             (map (fn [p]
-                                   [:p p]
+                                   (if (string? p)
+                                     [:p p]
+                                     (case (:type p)
+                                       :code [:p
+                                              [:pre {:class "brush: js"}
+                                               (str (:body p))]]
+                                       :link [:p
+                                              [:a {:href (:href p)}
+                                               (:body p)]]))
                                    ) (:body e))]
                            [:div {:class "commit"}
-                            (:commit e)
-                            ]
-                           ]
+                            (:commit e)]]
                           ) (:stories (om/get-props owner)))]])))
 
 
