@@ -2,7 +2,7 @@
   :body ["Singe I'm actually using git to stora all my data including this EDN file-based database. Why not associate each blog post with a git commit? So you could follow along or something.  "
          "Simple enough... Add a git commit attribute to this field. And render it... Only problem is though I'll have to commit twice for each article. Once to push the article / content and get the commit ID, then another to put the git commit ID in the 'DB' here. Using a text-file database just got a little less glamorous. But ok here it goes."
          ]
-  :commit "REPLACE-ME"}
+  :commit "https://github.com/jdkealy/jdkealy.com/commit/dc32a1ea572ae9a15df8a36f63d1bf2028e32bc7"}
  {:title "SETTING UP A CLJS PROJECT ON HEROKU"
   :commit "not found"
   :body ["nothing is quite as easy as setting up a sinatra project on heroku. For this blog, I'm using sinatra for the client-side app and a cljore project to generate an OM/clojurescript application. For my blog, I'm writing in EDN Files."
